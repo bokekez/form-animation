@@ -4,7 +4,6 @@ import portraitImage from './image.png';
 
 const CursorFollower = () => {
   const [angle, setAngle] = useState(0);
-  const [isOnRight, setIsOnRight] = useState(false); 
   const headRef = useRef(null);
 
   useEffect(() => {
@@ -13,7 +12,7 @@ const CursorFollower = () => {
         if (event.clientX > window.innerWidth / 2) {
           caclMaxHeadAngle(event, 3)
         } else if (event.clientX > window.innerWidth / 2.5) {
-          caclMaxHeadAngle(event, 2.5)
+          caclMaxHeadAngle(event, 2.5)  
         } else if (event.clientX > window.innerWidth / 3) {
           caclMaxHeadAngle(event, 2)
         } else {
@@ -47,7 +46,7 @@ const CursorFollower = () => {
         ref={headRef}
         className="head"
         style={{
-          transform: `rotate(${isOnRight ? angle : 0}deg)`, 
+          transform: `rotate(${angle}deg)`, 
         }}
       >
         <img src={portraitImage} alt="head" className="head-image" />
