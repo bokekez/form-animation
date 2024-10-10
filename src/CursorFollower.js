@@ -10,27 +10,27 @@ const CursorFollower = () => {
   useEffect(() => {
     const handleMouseMove = (event) => {
       if (headRef.current) {
-        const head = headRef.current.getBoundingClientRect();
-        const portrait = headRef.current.parentNode.getBoundingClientRect();
-
-        const headCenterX = head.left + head.width / 2;
-        const headCenterY = head.top + head.height / 2;
-
-        const isRight = event.clientX > window.innerWidth / 3;
-        const isInPortraitVerticalBounds = 
-          event.clientY >= portrait.top && event.clientY <= portrait.bottom;
-
-        if (isRight && isInPortraitVerticalBounds) {
-          setIsOnRight(true);
-          const deltaX = event.clientX - headCenterX;
-          const deltaY = event.clientY - headCenterY;
-          const angleDeg = Math.atan2(deltaY, deltaX) * (15 / Math.PI);
-          setAngle(angleDeg);
+        if (event.clientX > window.innerWidth / 2) {
+          caclMaxHeadAngle(event, 3)
+        } else if (event.clientX > window.innerWidth / 2.5) {
+          caclMaxHeadAngle(event, 2.5)
+        } else if (event.clientX > window.innerWidth / 3) {
+          caclMaxHeadAngle(event, 2)
         } else {
-          setIsOnRight(false);
+          caclMaxHeadAngle(event, 1)
         }
       }
     };
+
+    const caclMaxHeadAngle = (event, multiplier) => {
+      const head = headRef.current.getBoundingClientRect();
+      const headCenterX = head.left + head.width / 2;
+      const headCenterY = head.top + head.height / 2;
+      const deltaX = event.clientX - headCenterX;
+      const deltaY = event.clientY - headCenterY;
+      const angleDeg = Math.atan2(deltaY, deltaX) * (5 * multiplier / Math.PI);
+      setAngle(angleDeg);
+    }
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
