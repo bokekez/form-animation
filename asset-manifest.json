@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/form-animation/static/css/main.dd8ce0fe.css",
+    "main.js": "/form-animation/static/js/main.5885d027.js",
+    "static/media/image.png": "/form-animation/static/media/image.71dffdde55e997c42ea9.png",
+    "index.html": "/form-animation/index.html",
+    "main.dd8ce0fe.css.map": "/form-animation/static/css/main.dd8ce0fe.css.map",
+    "main.5885d027.js.map": "/form-animation/static/js/main.5885d027.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd8ce0fe.css",
+    "static/js/main.5885d027.js"
+  ]
+}
