@@ -16,7 +16,7 @@ const CursorFollower = () => {
         const headCenterX = head.left + head.width / 2;
         const headCenterY = head.top + head.height / 2;
 
-        const isRight = event.clientX > window.innerWidth / 2;
+        const isRight = event.clientX > window.innerWidth / 3;
         const isInPortraitVerticalBounds = 
           event.clientY >= portrait.top && event.clientY <= portrait.bottom;
 
@@ -24,7 +24,7 @@ const CursorFollower = () => {
           setIsOnRight(true);
           const deltaX = event.clientX - headCenterX;
           const deltaY = event.clientY - headCenterY;
-          const angleDeg = Math.atan2(deltaY, deltaX) * (20 / Math.PI);
+          const angleDeg = Math.atan2(deltaY, deltaX) * (15 / Math.PI);
           setAngle(angleDeg);
         } else {
           setIsOnRight(false);
