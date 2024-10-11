@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './CursorFollower.css';
 import portraitImage from './image.png'; 
+import middleImage from './image2.png'; 
 
 const CursorFollower = () => {
   const [angle, setAngle] = useState(0);
@@ -10,7 +11,7 @@ const CursorFollower = () => {
     const handleMouseMove = (event) => {
       if (headRef.current) {
         if (event.clientX > window.innerWidth / 2) {
-          caclMaxHeadAngle(event, 3)
+          caclMaxHeadAngle(event, 2.8)
         } else if (event.clientX > window.innerWidth / 2.5) {
           caclMaxHeadAngle(event, 2.5)  
         } else if (event.clientX > window.innerWidth / 3) {
@@ -41,7 +42,8 @@ const CursorFollower = () => {
     <div className="main-container">
     <div className="portrait-container">
       <img src={portraitImage} alt="portrait" className="portrait" />
-
+      <div className="head-image-bg"></div>
+      <img src={middleImage} alt="middle" className="head-image-bg" />
       <div
         ref={headRef}
         className="head"
@@ -49,6 +51,7 @@ const CursorFollower = () => {
           transform: `rotate(${angle}deg)`, 
         }}
       >
+        {/* <img src={middleImage} alt="middle" className="head-image-bg" /> */}
         <img src={portraitImage} alt="head" className="head-image" />
       </div>
     </div>
