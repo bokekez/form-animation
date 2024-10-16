@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './CursorFollower.css';
-import portraitImage from './image.png'; 
-import middleImage from './image2.png'; 
+import '../componentStyles/CursorFollower.css';
+import portraitImage from '../componentResources/image.png'; 
+import middleImage from '../componentResources/image2.png'; 
+import LineGraph from './LineGraph';
 
 const CursorFollower = () => {
   const [angle, setAngle] = useState(0);
@@ -51,7 +52,6 @@ const CursorFollower = () => {
           transform: `rotate(${angle}deg)`, 
         }}
       >
-        {/* <img src={middleImage} alt="middle" className="head-image-bg" /> */}
         <img src={portraitImage} alt="head" className="head-image" />
       </div>
     </div>
@@ -61,6 +61,7 @@ const CursorFollower = () => {
       <label>Password:</label>
       <input type='text'></input>
     </div>
+    <LineGraph />
     </div>
   );
 };
