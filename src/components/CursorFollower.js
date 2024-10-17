@@ -61,7 +61,6 @@ const CursorFollower = () => {
       <label>Password:</label>
       <input type='text'></input>
     </div>
-    <LineGraph />
     </div>
   );
 };
